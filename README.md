@@ -52,10 +52,7 @@ Use the admin page to add text, upload a JPEG/PNG image, or paste a public HTTPS
 export WORKER_URL="https://facebook-page-rotator.<your-subdomain>.workers.dev"
 export ADMIN_SECRET="<your-admin-secret>"
 
-curl -sS -X POST "$WORKER_URL/api/content" \\
-  -H "Authorization: Bearer $ADMIN_SECRET" \\
-  -H "Content-Type: application/json" \\
-  --data '{"text":"Your post text here"}'
+curl -sS -X POST "$WORKER_URL/api/content" -H "Authorization: Bearer $ADMIN_SECRET" -H "Content-Type: application/json" --data '{"text":"Your post text here"}'
 
 curl -sS "$WORKER_URL/api/status" -H "Authorization: Bearer $ADMIN_SECRET"
 curl -sS -X POST "$WORKER_URL/api/resume" -H "Authorization: Bearer $ADMIN_SECRET"
