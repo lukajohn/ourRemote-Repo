@@ -1,0 +1,26 @@
+name = "facebook-page-rotator"
+main = "src/index.ts"
+compatibility_date = "2026-10-21"
+workers_dev = true
+
+[vars]
+META_GRAPH_API_VERSION = "v26.0"
+
+[observability]
+enabled = true
+
+# Eight slots per day, every three hours. Cron Triggers use UTC.
+[triggers]
+crons = ["0 */3 * * *"]
+
+[[durable_objects.bindings]]
+name = "STATE"
+class_name = "QueueStore"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["QueueStore"]
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "facebook-page-rotator-media"
