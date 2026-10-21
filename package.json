@@ -1,0 +1,18 @@
+{
+  "name": "facebook-page-rotator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Cloudflare Worker for safe, FIFO, scheduled Facebook Page publishing.",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types tests/logic.test.mjs && node --experimental-strip-types tests/worker.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "wrangler": "^4.20.0"
+  }
+}
